@@ -1,0 +1,9 @@
+package googleWebPage;
+
+public class GooglePage implements UtilClass{
+	
+	public WebElement searchTextBox(){
+		return getDriver().findElement(By.id("gbqfq"));
+	}
+
+}

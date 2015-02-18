@@ -1,0 +1,41 @@
+
+
+import static org.junit.Assert.assertTrue;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Runner {
+	
+	WebDriver driver = new FirefoxDriver();
+	
+	@Before
+	public void startTesting(){
+		driver.manage().window().maximize();
+		driver.get("https://www.google.es/");
+		
+	}
+	
+	@After
+	public void tearDown(){
+		driver.quit();
+	}
+	
+	@Test
+	public void test1() throws InterruptedException{
+		driver.findElement(By.id("gbqfq")).sendKeys("Hello World");
+		driver.findElement(By.id("gbqfb")).click();
+		Thread.sleep(500);
+		String titulo = driver.getTitle();
+		System.out.println(titulo+"\nTitle found.");
+		assertTrue("Title "+titulo+" is not correct",titulo.contentEquals("Hello World - Buscar con Google"));
+		System.out.println("Enough for start playing :)");
+				
+	}
+	
+
+}
