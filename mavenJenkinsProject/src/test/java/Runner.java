@@ -1,6 +1,7 @@
 
 
 import static org.junit.Assert.assertTrue;
+import mavenJenkinsProject.Navigation;
 
 import org.junit.After;
 import org.junit.Before;
@@ -9,28 +10,29 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Runner {
+public class Runner extends Navigation{
 	
-	WebDriver driver = new FirefoxDriver();
+	SomeElements elements;
+	
 	
 	@Before
 	public void startTesting(){
-		driver.manage().window().maximize();
-		driver.get("https://www.google.es/");
+		getDriver().manage().window().maximize();
+		getDriver().get("https://www.google.com/");
 		
 	}
 	
 	@After
 	public void tearDown(){
-		driver.quit();
+		getDriver().quit();
 	}
 	
 	@Test
 	public void test1() throws InterruptedException{
-		driver.findElement(By.id("gbqfq")).sendKeys("Hello World");
-		driver.findElement(By.id("gbqfb")).click();
+		elements.searchTextBox().sendKeys("Hello World");
+		elements.searchButton().click();
 		Thread.sleep(500);
-		String titulo = driver.getTitle();
+		String titulo = getDriver().getTitle();
 		System.out.println(titulo+"\nTitle found.");
 		assertTrue("Title "+titulo+" is not correct",titulo.contentEquals("Hello World - Buscar con Google"));
 		System.out.println("Enough for start playing :)");
@@ -40,6 +42,11 @@ public class Runner {
 	@Test
 	public void test2(){
 		System.out.println("New Method implemented And now ran from home");
+	}
+	
+	@Test
+	public void mindaDeTest(){
+		System.out.println("Test to verify the changes on real time");
 	}
 	
 }
