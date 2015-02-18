@@ -39,8 +39,7 @@ public class Runner {
 	
 	@Test
 	public void test2(){
-		System.out.println("New Method implemented");
+		System.out.println("New Method implemented And now ran from home");
 	}
 	
-
 }
