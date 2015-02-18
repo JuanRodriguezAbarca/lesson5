@@ -1,7 +1,6 @@
 
 
 import static org.junit.Assert.assertTrue;
-import mavenJenkinsProject.Navigation;
 
 import org.junit.After;
 import org.junit.Before;
@@ -10,29 +9,29 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Runner extends Navigation{
+public class Runner{
 	
-	SomeElements elements;
+	WebDriver driver = new FirefoxDriver();
 	
 	
 	@Before
 	public void startTesting(){
-		getDriver().manage().window().maximize();
-		getDriver().get("https://www.google.com/");
+		driver.manage().window().maximize();
+		driver.get("https://www.google.es/");
 		
 	}
 	
 	@After
 	public void tearDown(){
-		getDriver().quit();
+		driver.quit();
 	}
 	
 	@Test
 	public void test1() throws InterruptedException{
-		elements.searchTextBox().sendKeys("Hello World");
-		elements.searchButton().click();
+		driver.findElement(By.id("gbqfq")).sendKeys("Hello World");
+		driver.findElement(By.id("gbqfb")).click();
 		Thread.sleep(500);
-		String titulo = getDriver().getTitle();
+		String titulo = driver.getTitle();
 		System.out.println(titulo+"\nTitle found.");
 		assertTrue("Title "+titulo+" is not correct",titulo.contentEquals("Hello World - Buscar con Google"));
 		System.out.println("Enough for start playing :)");
