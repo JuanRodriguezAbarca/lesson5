@@ -1,3 +1,4 @@
+package mavenJenkinsProject;
 
 
 import static org.junit.Assert.assertTrue;
