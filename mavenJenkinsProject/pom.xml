@@ -12,4 +12,7 @@
         <version>2.44.0</version>
     </dependency> 
     </dependencies>
+     <properties>
+         <srcdir>src/test/java</srcdir>
+ </properties>
 </project>
