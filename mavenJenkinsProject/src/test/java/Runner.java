@@ -46,6 +46,7 @@ public class Runner{
 	@Test
 	public void mindaDeTest(){
 		System.out.println("Test to verify the changes on real time");
+		assertTrue("This test should Fail",false);
 	}
 	
 }
