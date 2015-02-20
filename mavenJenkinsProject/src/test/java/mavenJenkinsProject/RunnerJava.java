@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Runner{
+public class RunnerJava{
 	
 	WebDriver driver = new FirefoxDriver();
 	
@@ -28,7 +28,7 @@ public class Runner{
 	}
 	
 	@Test
-	public void test1() throws InterruptedException{
+	public void indas() throws InterruptedException{
 		driver.findElement(By.id("gbqfq")).sendKeys("Hello World");
 		driver.findElement(By.id("gbqfb")).click();
 		Thread.sleep(500);
@@ -40,12 +40,12 @@ public class Runner{
 	}
 	
 	@Test
-	public void test2(){
+	public void omingas(){
 		System.out.println("New Method implemented And now ran from home");
 	}
 	
 	@Test
-	public void mindaDeTest(){
+	public void pollasEnVinagre(){
 		System.out.println("Test to verify the changes on real time");
 		assertTrue("This test should Fail",false);
 	}
